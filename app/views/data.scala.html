@@ -1,0 +1,25 @@
+@(pages: Seq[Page])
+
+@main("Cat & Dog database") {
+<div>
+
+
+  <div id="pages">
+    <h2>Insert a kitty Pages here:</h2>
+
+    <form action="/insert/dog" method="POST">
+      <input name="name" type="text" placeholder="name your canine friend"/>
+      <input name="color" type="text" placeholder="enter the color of this kitty dog"/>
+      <input type="submit"/>
+    </form>
+
+    <h2>Previously inserted pages:</h2>
+    <table>
+      <tr><th>id</th><th>title</th><th>content</th></tr>
+      @for(d <- pages){
+        <tr><td>@d.id</td><td>@d.title</td><td>@d.content</td></tr>
+      }
+    </table>
+  </div>
+</div>
+}
